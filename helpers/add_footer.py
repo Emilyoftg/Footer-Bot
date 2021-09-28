@@ -21,12 +21,12 @@ async def AddFooter(bot: Client, event: Message, text: str, user_id: int):
     try:
         if event.text is None:
             await event.edit_caption(
-                caption=f"{event.caption.markdown if (event.caption is not None) else ''}\n{text}",
+                caption=f"{event.caption.markdown if (event.caption is not None) else ''}\n\n{text}",
                 parse_mode="markdown"
             )
         else:
             await event.edit(
-                text=f"{event.text.markdown}\n{text}",
+                text=f"{event.text.markdown}\n\n{text}",
                 parse_mode="markdown"
             )
     except MediaCaptionTooLong:
